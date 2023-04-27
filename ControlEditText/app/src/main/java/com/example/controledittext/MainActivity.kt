@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var edtUser: EditText
     private lateinit var edtPass: EditText
     private lateinit var btnLogin: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         edtPass = findViewById(R.id.edtPass)
         btnLogin = findViewById(R.id.btnLogIn)
     }
-    fun display(mensje: String){
+    private fun display(mensje: String){
         Toast.makeText(this,mensje, Toast.LENGTH_SHORT).show()
     }
 

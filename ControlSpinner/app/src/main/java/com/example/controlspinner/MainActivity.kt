@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
+import android.widget.ArrayAdapter.createFromResource
 import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         opciones(spOperaciones)
 
     }
-    fun initControl() {
+    private fun initControl() {
         edtValor1 = findViewById(R.id.edtVal1)
         edtValor2 = findViewById(R.id.edtVal2)
         spOperaciones = findViewById(R.id.spOperaciones)
@@ -35,13 +36,16 @@ class MainActivity : AppCompatActivity() {
         btnResultado = findViewById(R.id.btnCalcular)
     }
 
-    fun adapterList(lista: Array<String>): ArrayAdapter<String>{
-        val adapter =  ArrayAdapter(this,android.R.layout.simple_spinner_item,lista)
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+    private fun adapterList(lista: Array<String>): ArrayAdapter<CharSequence> { //Aqui retornarias ArrayAdapter<String>
+        //utilizando array definido desde código
+        //val adapter =  ArrayAdapter(this,android.R.layout.simple_spinner_item,lista)
+        //Si quereos utilizar recursos desde un archivo string
+         val adapter = createFromResource(this,R.array.operaciones,android.R.layout.simple_spinner_item)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         return adapter
     }
 
-    fun opciones(spinner: Spinner){
+    private fun opciones(spinner: Spinner){
         btnResultado.setOnClickListener {
             val val1 = edtValor1.text.toString().toDouble()
             val val2 = edtValor2.text.toString().toDouble()
