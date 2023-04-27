@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ControlSpinner</string>
+
+
+    <string-array name="operaciones">
+        <item>Sumar</item>
+        <item>Restar</item>
+        <item>Multiplicar</item>
+    </string-array>
+</resources>
