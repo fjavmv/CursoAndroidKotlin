@@ -1,6 +1,7 @@
 package com.example.sharedpreferences
 
 import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -21,7 +22,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initControl()
-        val preferen = getSharedPreferences("agenda", Context.MODE_PRIVATE)
+        //Obtenemos una referencia de un objeto de la clase SharedPreferences
+        //El primer parámetro es el nombre del archivo
+        //segundo la forma de creación del archivo (MODE_PRIVATE indica que solo esta aplicación puede consultar el archivo
+        val preferen = getSharedPreferences(
+            resources.getString(R.string.key_sharedpreferen_name),
+            Context.MODE_PRIVATE
+        )
+        //Inyectamos una dependecia
         val preferencias = Preferencias(preferen)
 
         btnGuardar.setOnClickListener {
@@ -31,17 +39,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnRecuperar.setOnClickListener {
-            val dato = edtNombre.text.toString()
-            if (dato.isEmpty()){
+            if (buscarKey().isEmpty()) {
                 display("No se ingresó un valor de búsqueda")
-            }else{
-                txtMostrar.text =   preferencias.consultarPreferencia(dato).toString()
+            } else {
+                txtMostrar.text = preferencias.consultarPreferencia(buscarKey())
             }
 
         }
     }
 
-    private fun initControl(){
+    private fun buscarKey(): String {
+        return edtNombre.text.toString()
+    }
+
+    private fun initControl() {
         edtNombre = findViewById(R.id.edtNombre)
         edtTelefono = findViewById(R.id.edtTelefono)
         edtEmail = findViewById(R.id.edtEmail)
@@ -50,24 +61,21 @@ class MainActivity : AppCompatActivity() {
         txtMostrar = findViewById(R.id.txtDatos)
     }
 
-    private fun obtenerDatos(): Agenda{
-        return Agenda(edtNombre.text.toString(),edtTelefono.text.toString(),edtEmail.text.toString())
+    private fun obtenerDatos(): Agenda {
+        return Agenda(
+            edtNombre.text.toString(),
+            edtTelefono.text.toString(),
+            edtEmail.text.toString()
+        )
     }
 
-
-
-
-
-    private fun limpiarCampos(){
+    private fun limpiarCampos() {
         edtNombre.setText(" ")
         edtTelefono.setText(" ")
         edtEmail.setText(" ")
     }
 
-
-
-
-    private fun display(mensaje: String){
-        Toast.makeText(this,mensaje,Toast.LENGTH_SHORT).show()
+    private fun display(mensaje: String) {
+        Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
     }
 }
