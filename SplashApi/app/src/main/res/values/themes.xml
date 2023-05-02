@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.SplashApi" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.SplashApi" parent="Base.Theme.SplashApi" />
+
+    <!--Agregamos un style-->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/light_primary_color</item>
+        <!--Imagen de 240 x 240 dp https://developer.android.com/develop/ui/views/launch/splash-screen#kts-->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/baseline_email_24</item>
+        <item name="windowSplashScreenAnimationDuration">300</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.SplashApi</item>
+    </style>
+</resources>
