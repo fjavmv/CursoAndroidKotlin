@@ -130,5 +130,5 @@ class OperationUserDao(private var context: Context) : UserDbHelper(context), IO
         }
         return deleteRow
     }
-    
+
 }
