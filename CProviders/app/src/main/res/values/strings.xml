@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">CProviders</string>
+    <string name="entrada">Llamada de entrada</string>
+    <string name="salida">Llamada de salida</string>
+    <string name="perdida">Llamada de perdida</string>
+    <string name="desconocido">Llamada de desconocida</string>
+
+
+    <string name="etiqueta_nombre">Nombre:</string>
+    <string name="etiqueta_numero">Número:</string>
+    <string name="etiqueta_fecha">Fecha:</string>
+    <string name="etiqueta_tipo">Tipo:</string>
+    <string name="etiqueta_duracion">Duración:</string>
+    <string name="registro_de_llamadas">Registro de llamadas</string>
+    <string name="mostrar_log_de_llamadas">Mostrar log de llamadas</string>
+    <string name="mostrar_log">mostrar log</string>
+</resources>

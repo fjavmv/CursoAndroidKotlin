@@ -29,7 +29,6 @@ object UserDbContract {
 
     object Querys {
         const val SQL_QUERY_SELECT_USER = "SELECT ${UserEntry.TABLE_NAME}${UserEntry.COLUMN_LAST_NAME}${UserEntry.COLUMN_PHONE_NUMBER}${UserEntry.COLUMN_USER_EMAIL} FROM ${UserEntry.TABLE_NAME};"
-
     }
 
 

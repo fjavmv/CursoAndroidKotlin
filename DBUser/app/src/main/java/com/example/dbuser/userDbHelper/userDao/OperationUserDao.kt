@@ -45,7 +45,6 @@ class OperationUserDao(private var context: Context) : UserDbHelper(context), IO
             val db = userDbHelper.writableDatabase
             affectedRows = db.update(UserEntry.TABLE_NAME,values,selection,selectionArgs)
 
-
         }catch (ex: Exception){
             Log.e("Error en la actualización", ex.toString())
         }
@@ -67,7 +66,7 @@ class OperationUserDao(private var context: Context) : UserDbHelper(context), IO
                 )
                 userElement.add(userDto)
             }
-            cursor.close()
+           cursor.close()
         }catch (ex:java.lang.Exception){
             Log.e("Ha ocurrido un error en la consulta: ", ex.toString())
         }
