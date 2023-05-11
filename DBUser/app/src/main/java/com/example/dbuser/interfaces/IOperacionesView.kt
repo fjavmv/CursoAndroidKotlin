@@ -1,5 +1,10 @@
 package com.example.dbuser.interfaces
 
+import com.example.dbuser.dataModel.UserDto
+
 interface IOperacionesView {
-    fun showResult(result : String)
+    fun insertElement()
+    fun showResultInsert(result : Int)
+
+
 }

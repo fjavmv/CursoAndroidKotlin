@@ -14,30 +14,33 @@ class OperacionesPresenterImpl(view: IOperacionesView,context: Context): IOperac
 
     init {
         this.view = view
+        //Pasamos al interactor un instancia del presentador y el contexto de la aplicación
         interactor = InteractorOperacionesImpl(this,context)
     }
 
-    override fun showResult(result: String) {
-
+    //Pasamos al interactor los elementos a insertar
+    override fun insertUser(userDto: UserDto) {
+        interactor.insertUser(userDto)
     }
 
-    override fun insertUser(userDto: UserDto): Long {
-        return interactor.insertUser(userDto)
+    //Pasamos a la vista el resultado de la inserción
+    override fun showResultInsert(result: Int) {
+        view.showResultInsert(result)
     }
 
-    override fun updateUser(userDto: UserDto): Int {
+    override fun updateUser(userDto: UserDto){
         TODO("Not yet implemented")
     }
 
-    override fun selectUsers(): ArrayList<UserDto> {
+    override fun selectUsers(){
         TODO("Not yet implemented")
     }
 
-    override fun selectUserName(name: String): ArrayList<UserDto> {
+    override fun selectUserName(name: String){
         TODO("Not yet implemented")
     }
 
-    override fun deleteUser(name: String): Int {
+    override fun deleteUser(name: String){
         TODO("Not yet implemented")
     }
 

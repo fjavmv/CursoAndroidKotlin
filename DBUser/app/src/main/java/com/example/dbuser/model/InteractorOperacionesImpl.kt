@@ -11,30 +11,33 @@ class InteractorOperacionesImpl (presenter: IOperacionesPresenter, context: Cont
 
     private val presenter: IOperacionesPresenter
     private val operacionesDao: IOperationDao
+    private var result = -1
 
     init {
         this.presenter = presenter
+        //Pasamos el contexto a la clase OperacionesDaoImpl
         operacionesDao = OperationDaoImpl(context)
     }
-
-
-    override fun insertUser(userDto: UserDto): Long {
-        return operacionesDao.insertUser(userDto)
+    //Pasamos los datos que vienen de presentador
+    override fun insertUser(userDto: UserDto){
+        result = operacionesDao.insertUser(userDto).toInt()
+        //Comunicamos el resultado de la inserción al presentador
+        presenter.showResultInsert(result)
     }
 
-    override fun updateUser(userDto: UserDto): Int {
+    override fun updateUser(userDto: UserDto){
         TODO("Not yet implemented")
     }
 
-    override fun selectUsers(): ArrayList<UserDto> {
+    override fun selectUsers(){
         TODO("Not yet implemented")
     }
 
-    override fun selectUserName(name: String): ArrayList<UserDto> {
+    override fun selectUserName(name: String){
         TODO("Not yet implemented")
     }
 
-    override fun deleteUser(name: String): Int {
+    override fun deleteUser(name: String){
         TODO("Not yet implemented")
     }
 }
