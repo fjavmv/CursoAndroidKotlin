@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity(), IOperacionesView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initControl()
+        insertElement()
     }
 
     private fun leerDatos(): UserDto {
