@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // gestionar las consultas al content provider de llamadas
-    fun consultarContentProviderLlamadas() {
+   private fun consultarContentProviderLlamadas() {
         tvLlamadas.text = " "
         val direccionUriLlamadas = CallLog.Calls.CONTENT_URI
         //NOMBRE, NÚMERO, FECHA, TIPO, DURACIÓN

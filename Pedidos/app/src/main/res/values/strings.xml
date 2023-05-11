@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Pedidos</string>
+    <string name="gestion_de_pedidos">Gestion de pedidos</string>
+    <string name="nuevo_pedido">Nuevo pedido</string>
+    <string name="registrar_pago">Registrar pago</string>
+    <string name="men_de_restaurante">Menú de restaurante</string>
+    <string name="nombre_del_alimento_o_bebida">Nombre del alimento o bebida</string>
+</resources>
