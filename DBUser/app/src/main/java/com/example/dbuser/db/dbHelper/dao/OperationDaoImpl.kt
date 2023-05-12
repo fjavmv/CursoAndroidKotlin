@@ -2,7 +2,6 @@ package com.example.dbuser.db.dbHelper.dao
 
 import android.content.ContentValues
 import android.content.Context
-import android.database.Cursor
 import android.provider.BaseColumns
 import android.util.Log
 import com.example.dbuser.dataModel.UserDto

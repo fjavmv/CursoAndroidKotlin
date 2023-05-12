@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity(), IOperacionesView {
     private lateinit var btnConsultar: Button
     private lateinit var btnActualizar: Button
     private lateinit var btnEliminar: Button
+    private lateinit var btnConsulataNombre: Button
     private lateinit var presenter: IOperacionesPresenter
     private var userDto = UserDto()
     private var result = -1
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity(), IOperacionesView {
         initControl()
         //Invocamos al méotodo para su ejecución
         insertElement()
-       // selectUserName()
+        selectUserName()
         selectUserId()
 
     }
@@ -58,7 +59,7 @@ class MainActivity : AppCompatActivity(), IOperacionesView {
     }
 
     override fun selectUserName() {
-        btnConsultar.setOnClickListener {
+        btnConsulataNombre.setOnClickListener {
             val name = edtNombre.text.toString()
             presenter.selectUserName(name)
             edtNombre.setText(userDto.name)
@@ -99,6 +100,7 @@ class MainActivity : AppCompatActivity(), IOperacionesView {
         btnActualizar = findViewById(R.id.btnActualizar)
         btnConsultar = findViewById(R.id.btnConsultar)
         btnEliminar = findViewById(R.id.btnEliminar)
+        btnConsulataNombre = findViewById(R.id.btnConsultarNombre)
         presenter = OperacionesPresenterImpl(this, this.applicationContext)
     }
 

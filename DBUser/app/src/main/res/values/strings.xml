@@ -10,4 +10,5 @@
     <string name="id_a_buscar">Id a buscar</string>
     <string name="actualizar">Actualizar</string>
     <string name="eliminar">Eliminar</string>
+    <string name="consulta_nombre">Consulta Nombre</string>
 </resources>
