@@ -6,7 +6,8 @@ interface IOperationDao {
      fun insertUser(userDto: UserDto): Long
      fun updateUser(userDto: UserDto): Int
      fun selectUsers(): ArrayList<UserDto>
-     fun selectUserName(name: String): ArrayList<UserDto>
+     fun selectUserName(nombre: String): UserDto
+
      fun deleteUser(name: String): Int
 
 }

@@ -6,4 +6,8 @@
     <string name="telefono">Telefono</string>
     <string name="apellido">Apellido</string>
     <string name="guardar">Guardar</string>
+    <string name="consultar">C. por ID</string>
+    <string name="id_a_buscar">Id a buscar</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="eliminar">Eliminar</string>
 </resources>

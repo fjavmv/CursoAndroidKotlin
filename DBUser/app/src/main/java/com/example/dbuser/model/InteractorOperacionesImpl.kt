@@ -25,19 +25,9 @@ class InteractorOperacionesImpl (presenter: IOperacionesPresenter, context: Cont
         presenter.showResultInsert(result)
     }
 
-    override fun updateUser(userDto: UserDto){
-        TODO("Not yet implemented")
-    }
-
-    override fun selectUsers(){
-        TODO("Not yet implemented")
-    }
-
     override fun selectUserName(name: String){
-        TODO("Not yet implemented")
+       val userDto = operacionesDao.selectUserName(name)
+        presenter.showResulSelect(userDto)
     }
 
-    override fun deleteUser(name: String){
-        TODO("Not yet implemented")
-    }
 }

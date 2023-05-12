@@ -2,6 +2,7 @@ package com.example.dbuser.db.dbHelper.dao
 
 import android.content.ContentValues
 import android.content.Context
+import android.provider.BaseColumns
 import android.util.Log
 import com.example.dbuser.dataModel.UserDto
 import com.example.dbuser.interfaces.IOperationDao
@@ -74,14 +75,14 @@ class OperationDaoImpl(context: Context) : DbHelper(context), IOperationDao {
         return userElement
     }
 
-    override fun selectUserName(name: String): ArrayList<UserDto> {
-        val listName = ArrayList<UserDto>()
-        var userDto: UserDto
+    //Consulta por nombre de usuario
+    override fun selectUserName(nombre:String): UserDto {
+        var userDto = UserDto()
         //Creamos una proyección que especifica las columnas de la db que se van a utilizar
         val queryProjection =  arrayOf(UserEntry.COLUMN_USER_NAME,UserEntry.COLUMN_LAST_NAME,UserEntry.COLUMN_PHONE_NUMBER,UserEntry.COLUMN_USER_EMAIL)
         //Creamos las restricciiones para filtrar el resultado
         val selection = "${UserEntry.COLUMN_USER_NAME} = ?"
-        val selectionArgs = arrayOf(name)
+        val selectionArgs = arrayOf(nombre)
         //Cómo se ordenaran los resultados en el Cursor resultante
         val sortOrder = "${UserEntry.COLUMN_LAST_NAME} DESC"
         try{
@@ -95,22 +96,23 @@ class OperationDaoImpl(context: Context) : DbHelper(context), IOperationDao {
                 null,
                 sortOrder
             )
-            with(cursor){
-                while (moveToNext()){
-                   userDto = UserDto(
-                       cursor.getString(1),
-                       cursor.getString(2),
-                       cursor.getString(3),
-                       cursor.getString(4)
-                   )
-                    listName.add(userDto)
+
+            with(cursor) {
+                while (moveToNext()) {
+                    userDto = UserDto(
+                        cursor.getString(getColumnIndexOrThrow(UserEntry.COLUMN_USER_NAME)),
+                        cursor.getString(getColumnIndexOrThrow(UserEntry.COLUMN_LAST_NAME)),
+                        cursor.getString(getColumnIndexOrThrow(UserEntry.COLUMN_PHONE_NUMBER)),
+                        cursor.getString(getColumnIndexOrThrow(UserEntry.COLUMN_USER_EMAIL)))
                 }
             }
+
+            cursor.close()
 
         }catch (ex: Exception){
             Log.e("Ha ocurrido un error al búscar elementos",ex.toString())
         }
-        return listName
+        return userDto
     }
 
     override fun deleteUser(name: String): Int {

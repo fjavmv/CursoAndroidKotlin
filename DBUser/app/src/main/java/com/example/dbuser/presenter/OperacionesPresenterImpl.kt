@@ -28,20 +28,13 @@ class OperacionesPresenterImpl(view: IOperacionesView,context: Context): IOperac
         view.showResultInsert(result)
     }
 
-    override fun updateUser(userDto: UserDto){
-        TODO("Not yet implemented")
-    }
-
-    override fun selectUsers(){
-        TODO("Not yet implemented")
-    }
-
     override fun selectUserName(name: String){
-        TODO("Not yet implemented")
+        interactor.selectUserName(name)
     }
 
-    override fun deleteUser(name: String){
-        TODO("Not yet implemented")
+    override fun showResulSelect(userDto: UserDto) {
+        view.showResulSelect(userDto)
     }
+
 
 }
