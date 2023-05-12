@@ -8,6 +8,7 @@ interface IOperacioensInteractor {
     fun selectUserName(name: String)
     fun selectUserId(id: Int)
     fun updateUser(userDto: UserDto)
+    fun deleteUser(id: Int)
 
 
 }

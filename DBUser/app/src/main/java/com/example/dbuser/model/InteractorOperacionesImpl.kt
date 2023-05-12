@@ -40,4 +40,9 @@ class InteractorOperacionesImpl (presenter: IOperacionesPresenter, context: Cont
         presenter.showResultUpdate(result)
     }
 
+    override fun deleteUser(id: Int) {
+        val result = operacionesDao.deleteUser(id)
+        presenter.showResultDelete(result)
+    }
+
 }

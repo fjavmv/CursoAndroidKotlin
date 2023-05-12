@@ -14,6 +14,8 @@ interface IOperacionesPresenter {
 
     fun updateUser(userDto: UserDto)
     fun showResultUpdate(result:Int)
+    fun deleteUser(id: Int)
+    fun showResultDelete(result:Int)
 
 
 }

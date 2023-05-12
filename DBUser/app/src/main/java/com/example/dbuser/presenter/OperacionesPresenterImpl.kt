@@ -52,5 +52,13 @@ class OperacionesPresenterImpl(view: IOperacionesView,context: Context): IOperac
         view.showResultUpdate(result)
     }
 
+    override fun deleteUser(id: Int) {
+        interactor.deleteUser(id)
+    }
+
+    override fun showResultDelete(result: Int) {
+        view.showResultUpdate(result)
+    }
+
 
 }

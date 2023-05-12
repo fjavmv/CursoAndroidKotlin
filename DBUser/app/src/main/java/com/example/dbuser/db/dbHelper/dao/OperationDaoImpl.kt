@@ -137,11 +137,11 @@ class OperationDaoImpl(context: Context) : DbHelper(context), IOperationDao {
     }
 
 
-    override fun deleteUser(name: String): Int {
+    override fun deleteUser(id: Int): Int {
         //Definimos parte del query where
-        val selection = "${UserEntry.TABLE_NAME} LIKE ?"
+        val selection = "${BaseColumns._ID} LIKE ?"
         //Espcificamos los argumentos restricciones
-        val selectionArgs = arrayOf(name)
+        val selectionArgs = arrayOf(id.toString())
         var deleteRow = 0
         try {
             val db = dbHelper.readableDatabase

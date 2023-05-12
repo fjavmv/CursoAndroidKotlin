@@ -14,4 +14,7 @@ interface IOperacionesView {
     fun updateUser()
     fun showResultUpdate(result:Int)
 
+    fun deleteUser()
+    fun showResultDelete(result:Int)
+
 }

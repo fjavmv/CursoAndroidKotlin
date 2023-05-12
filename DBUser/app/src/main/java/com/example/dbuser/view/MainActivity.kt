@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity(), IOperacionesView {
         selectUserName()
         selectUserId()
         updateUser()
-
+        deleteUser()
     }
 
     //Pasa los datos d ela vista al presentador
@@ -105,6 +105,21 @@ class MainActivity : AppCompatActivity(), IOperacionesView {
     }
 
     override fun showResultUpdate(result: Int) {
+        this.result = result
+    }
+
+    override fun deleteUser() {
+       btnEliminar.setOnClickListener {
+           val id = edtId.text.toString().toInt()
+           presenter.deleteUser(id)
+           limpiar()
+           if (result!=-1){
+               display("El elemento ha sido eliminado $result")
+           }
+       }
+    }
+
+    override fun showResultDelete(result: Int) {
         this.result = result
     }
 

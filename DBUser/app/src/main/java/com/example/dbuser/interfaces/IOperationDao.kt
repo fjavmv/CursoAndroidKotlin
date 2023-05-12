@@ -8,6 +8,6 @@ interface IOperationDao {
      fun selectUsers(): ArrayList<UserDto>
      fun selectUserName(nombre: String): UserDto
      fun selectUserId(id: Int): UserDto
-     fun deleteUser(name: String): Int
+     fun deleteUser(id: Int): Int
 
 }
