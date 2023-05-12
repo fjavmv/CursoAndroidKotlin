@@ -6,8 +6,14 @@ data class UserDto(var idUser: Long = 0){
     lateinit var phoneNumber: String
     lateinit var userEmail: String
 
-    constructor(): this(0)
-    constructor(name: String, lastName: String,phoneNumber: String, userEmail: String): this (){
+    constructor(idUser: Long, name: String, lastName: String, phoneNumber: String, userEmail: String) : this(idUser){
+        this.idUser = idUser
+        this.name = name
+        this.lastName = lastName
+        this.phoneNumber = phoneNumber
+        this.userEmail = userEmail
+    }
+    constructor(name: String, lastName: String,phoneNumber: String, userEmail: String): this() {
         this.name = name
         this.lastName = lastName
         this.phoneNumber = phoneNumber

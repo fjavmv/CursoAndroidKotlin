@@ -12,5 +12,8 @@ interface IOperacionesPresenter {
     fun selectUserId(id: Int)
     fun showResultSelectId(userDto: UserDto)
 
+    fun updateUser(userDto: UserDto)
+    fun showResultUpdate(result:Int)
+
 
 }

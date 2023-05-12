@@ -35,4 +35,9 @@ class InteractorOperacionesImpl (presenter: IOperacionesPresenter, context: Cont
         presenter.showResultSelectId(userDto)
     }
 
+    override fun updateUser(userDto: UserDto) {
+        val result = operacionesDao.updateUser(userDto)
+        presenter.showResultUpdate(result)
+    }
+
 }

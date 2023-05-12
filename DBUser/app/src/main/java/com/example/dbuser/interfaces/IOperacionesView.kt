@@ -11,4 +11,7 @@ interface IOperacionesView {
     fun selectUserId()
     fun showResultSelectId(userDto: UserDto)
 
+    fun updateUser()
+    fun showResultUpdate(result:Int)
+
 }

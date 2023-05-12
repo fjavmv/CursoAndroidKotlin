@@ -41,8 +41,10 @@ class OperationDaoImpl(context: Context) : DbHelper(context), IOperationDao {
             put(UserEntry.COLUMN_PHONE_NUMBER,userDto.phoneNumber)
             put(UserEntry.COLUMN_USER_EMAIL,userDto.userEmail)
         }
-        val selection = "${UserEntry.COLUMN_USER_NAME} LIKE ?"
-        val selectionArgs = arrayOf(userDto.lastName)
+        //Esto de aquí equivale a un WHERE condition el signo de interrogación es un parametro que se sustituye
+        // por e argumentos  val selectionArgs = arrayOf(userDto.idUser.toString())
+        val selection = "${BaseColumns._ID} LIKE ?"
+        val selectionArgs = arrayOf(userDto.idUser.toString())
         try {
             val db = dbHelper.writableDatabase
             affectedRows = db.update(UserEntry.TABLE_NAME,values,selection,selectionArgs)

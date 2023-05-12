@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity(), IOperacionesView {
         insertElement()
         selectUserName()
         selectUserId()
+        updateUser()
 
     }
 
@@ -90,6 +91,23 @@ class MainActivity : AppCompatActivity(), IOperacionesView {
         this.userDto = userDto
     }
 
+    override fun updateUser() {
+        btnActualizar.setOnClickListener {
+            presenter.updateUser(leerDatos())
+            limpiar()
+            if (result!=-1)
+            {
+                display("Se ha actualizado el registro $result")
+            }else{
+                display("No se ha realizado la actualización $result")
+            }
+        }
+    }
+
+    override fun showResultUpdate(result: Int) {
+        this.result = result
+    }
+
     private fun initControl() {
         edtNombre = findViewById(R.id.edtNombre)
         edtApellido = findViewById(R.id.edtApellido)
@@ -105,11 +123,12 @@ class MainActivity : AppCompatActivity(), IOperacionesView {
     }
 
     private fun leerDatos(): UserDto {
+        val id = edtId.text.toString()
         val nombre = edtNombre.text.toString()
         val apellido = edtApellido.text.toString()
         val telefono = edtTelefono.text.toString()
         val email = edtEmail.text.toString()
-        return UserDto(nombre, apellido, telefono, email)
+        return UserDto(id.toLong(),nombre, apellido, telefono, email)
     }
 
     private fun display(dato: String) {
