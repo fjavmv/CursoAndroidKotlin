@@ -30,4 +30,9 @@ class InteractorOperacionesImpl (presenter: IOperacionesPresenter, context: Cont
         presenter.showResulSelect(userDto)
     }
 
+    override fun selectUserId(id: Int) {
+        val userDto = operacionesDao.selectUserId(id)
+        presenter.showResultSelectId(userDto)
+    }
+
 }

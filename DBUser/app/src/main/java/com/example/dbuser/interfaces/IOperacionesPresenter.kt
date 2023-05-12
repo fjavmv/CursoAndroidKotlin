@@ -9,5 +9,8 @@ interface IOperacionesPresenter {
     fun selectUserName(name:String)
     fun showResulSelect(userDto: UserDto)
 
+    fun selectUserId(id: Int)
+    fun showResultSelectId(userDto: UserDto)
+
 
 }

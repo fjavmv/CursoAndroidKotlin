@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity(), IOperacionesView {
     private lateinit var btnActualizar: Button
     private lateinit var btnEliminar: Button
     private lateinit var presenter: IOperacionesPresenter
-    private  var userDto = UserDto()
+    private var userDto = UserDto()
     private var result = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +33,8 @@ class MainActivity : AppCompatActivity(), IOperacionesView {
         initControl()
         //Invocamos al méotodo para su ejecución
         insertElement()
-        selectUserName()
+       // selectUserName()
+        selectUserId()
 
     }
 
@@ -57,20 +58,35 @@ class MainActivity : AppCompatActivity(), IOperacionesView {
     }
 
     override fun selectUserName() {
-       btnConsultar.setOnClickListener {
-           val name = edtNombre.text.toString()
-           presenter.selectUserName(name)
-           edtNombre.setText(userDto.name)
-           edtApellido.setText(userDto.lastName)
-           edtTelefono.setText(userDto.phoneNumber)
-           edtEmail.setText(userDto.userEmail)
-       }
+        btnConsultar.setOnClickListener {
+            val name = edtNombre.text.toString()
+            presenter.selectUserName(name)
+            edtNombre.setText(userDto.name)
+            edtApellido.setText(userDto.lastName)
+            edtTelefono.setText(userDto.phoneNumber)
+            edtEmail.setText(userDto.userEmail)
+        }
     }
 
     override fun showResulSelect(userDto: UserDto) {
         this.userDto = userDto
         println(userDto.lastName)
         print(userDto.lastName)
+    }
+
+    override fun selectUserId() {
+        btnConsultar.setOnClickListener {
+            val id = edtId.text.toString().toInt()
+            presenter.selectUserId(id)
+            edtNombre.setText(userDto.name)
+            edtApellido.setText(userDto.lastName)
+            edtTelefono.setText(userDto.phoneNumber)
+            edtEmail.setText(userDto.userEmail)
+        }
+    }
+
+    override fun showResultSelectId(userDto: UserDto) {
+        this.userDto = userDto
     }
 
     private fun initControl() {
@@ -93,9 +109,11 @@ class MainActivity : AppCompatActivity(), IOperacionesView {
         val email = edtEmail.text.toString()
         return UserDto(nombre, apellido, telefono, email)
     }
+
     private fun display(dato: String) {
         Toast.makeText(this, dato, Toast.LENGTH_SHORT).show()
     }
+
     private fun limpiar() {
         edtNombre.setText(" ")
         edtApellido.setText(" ")

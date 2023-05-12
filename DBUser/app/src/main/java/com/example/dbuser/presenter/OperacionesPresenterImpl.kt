@@ -36,5 +36,13 @@ class OperacionesPresenterImpl(view: IOperacionesView,context: Context): IOperac
         view.showResulSelect(userDto)
     }
 
+    override fun selectUserId(id: Int) {
+        interactor.selectUserId(id)
+    }
+
+    override fun showResultSelectId(userDto: UserDto) {
+        view.showResulSelect(userDto)
+    }
+
 
 }

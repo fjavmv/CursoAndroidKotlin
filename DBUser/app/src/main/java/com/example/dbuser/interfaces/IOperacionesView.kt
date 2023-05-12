@@ -8,4 +8,7 @@ interface IOperacionesView {
     fun selectUserName()
     fun showResulSelect(userDto: UserDto)
 
+    fun selectUserId()
+    fun showResultSelectId(userDto: UserDto)
+
 }

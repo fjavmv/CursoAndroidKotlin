@@ -2,13 +2,15 @@ package com.example.dbuser.db.dbHelper.dao
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.provider.BaseColumns
 import android.util.Log
 import com.example.dbuser.dataModel.UserDto
-import com.example.dbuser.interfaces.IOperationDao
 import com.example.dbuser.db.dbHelper.DbHelper
-import com.example.dbuser.db.dbHelper.contrato.UserDbContract.UserEntry
 import com.example.dbuser.db.dbHelper.contrato.UserDbContract.Querys
+import com.example.dbuser.db.dbHelper.contrato.UserDbContract.UserEntry
+import com.example.dbuser.interfaces.IOperationDao
+
 
 class OperationDaoImpl(context: Context) : DbHelper(context), IOperationDao {
     private val dbHelper = DbHelper(context)
@@ -52,6 +54,7 @@ class OperationDaoImpl(context: Context) : DbHelper(context), IOperationDao {
         return affectedRows
     }
 
+
     override fun selectUsers(): ArrayList<UserDto> {
         val userElement = ArrayList<UserDto>()
         try{
@@ -63,7 +66,7 @@ class OperationDaoImpl(context: Context) : DbHelper(context), IOperationDao {
                     cursor.getString(1),
                     cursor.getString(2),
                     cursor.getString(3),
-                    cursor.getString(4),
+                    cursor.getString(4)
                 )
                 userElement.add(userDto)
             }
@@ -114,6 +117,24 @@ class OperationDaoImpl(context: Context) : DbHelper(context), IOperationDao {
         }
         return userDto
     }
+
+    override fun selectUserId(id: Int): UserDto {
+        val db = dbHelper.writableDatabase
+        var userDto = UserDto()
+        //Espcificamos los argumentos restricciones
+         val selectionArgs = arrayOf(id.toString())
+        val cursor = db.rawQuery("SELECT * FROM ${UserEntry.TABLE_NAME} WHERE ${BaseColumns._ID} = ? LIMIT 1", selectionArgs)
+        if (cursor.moveToFirst()) {
+            userDto = UserDto(
+            cursor.getString(1),
+            cursor.getString(2),
+            cursor.getString(3),
+            cursor.getString(4))
+        }
+        cursor.close()
+        return userDto
+    }
+
 
     override fun deleteUser(name: String): Int {
         //Definimos parte del query where

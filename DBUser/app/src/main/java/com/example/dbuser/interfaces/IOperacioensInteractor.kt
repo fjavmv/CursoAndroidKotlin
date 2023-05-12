@@ -6,6 +6,7 @@ interface IOperacioensInteractor {
 
     fun insertUser(userDto: UserDto)
     fun selectUserName(name: String)
+    fun selectUserId(id: Int)
 
 
 }
