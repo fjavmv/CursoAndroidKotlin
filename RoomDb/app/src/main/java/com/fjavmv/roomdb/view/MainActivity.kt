@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnRecorrer: Button
     private lateinit var rcvUser: RecyclerView
     private lateinit var listUser: List<User>
+    private lateinit var adapterRecycler: AdapterRecycler
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +46,10 @@ class MainActivity : AppCompatActivity() {
 
         btnRecorrer.setOnClickListener {
             lifecycleScope.launch {
-                construirRecyclerUser(listUser(db))
+                listUser = listUser(db)
+                construirRecyclerUser()
+                adapterRecycler.notifyItemInserted(listUser.lastIndex)
+
             }
         }
     }
@@ -69,11 +73,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun construirRecyclerUser(list: List<User>){
-        listUser = list
+    private fun construirRecyclerUser(){
         rcvUser.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
-        val adapter = AdapterRecycler(listUser)
-        rcvUser.adapter = adapter
+        adapterRecycler = AdapterRecycler(listUser)
+        rcvUser.adapter = adapterRecycler
     }
 
 }
