@@ -29,9 +29,9 @@ class AdapterRecycler(private val listUser:List<User>): RecyclerView.Adapter<Ada
         private var edtEdad: TextView
 
         init {
-            edtNombre = itemView.findViewById(R.id.textView2)
-            edtApellido = itemView.findViewById(R.id.textView3)
-            edtEdad = itemView.findViewById(R.id.textView4)
+            edtNombre = itemView.findViewById(R.id.txtNombre)
+            edtApellido = itemView.findViewById(R.id.txtApellido)
+            edtEdad = itemView.findViewById(R.id.txtEdad)
         }
 
         fun asignarDatos(user: User){
