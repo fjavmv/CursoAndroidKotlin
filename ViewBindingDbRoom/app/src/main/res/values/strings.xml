@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ViewBindingDbRoom</string>
+    <string name="consultar">Consultar</string>
+    <string name="guardar">Guardar</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="edad">Edad</string>
+    <string name="user">user</string>
+</resources>

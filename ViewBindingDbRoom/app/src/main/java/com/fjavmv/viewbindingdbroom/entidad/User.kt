@@ -1,4 +1,5 @@
-package com.fjavmv.roomdb.entidad
+package com.fjavmv.viewbindingdbroom.entidad
+
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
