@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">EjemploViewModel</string>
+    <string name="incrementar">Incrementar</string>
+    <string name="limpiar">Limpiar</string>
+</resources>

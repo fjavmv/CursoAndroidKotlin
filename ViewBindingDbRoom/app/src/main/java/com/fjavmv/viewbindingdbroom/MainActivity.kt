@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-       // setContentView(R.layout.activity_main)
 
         UserRepository.inicializar(this)
         val db = UserRepository.get()

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    tools:viewBindingIgnore="false">
+    tools:viewBindingIgnore="false"
+    >
 
     <Button
         android:id="@+id/button2"
